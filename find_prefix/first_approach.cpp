@@ -1,6 +1,5 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
@@ -8,7 +7,6 @@ bool solution(vector<string> phone_book) {
 
     vector<bool> survivals(phone_book.size(), true);
     vector<string> prefix_storage(phone_book.size());
-    sort(phone_book.begin(), phone_book.end());
     for (int col = 0;; col++)
     {
         vector<bool> tmp_survivals(phone_book.size(), true);
@@ -29,14 +27,14 @@ bool solution(vector<string> phone_book) {
 
                     if (phone_book.at(index).size() - 1 == col)
                     {
-                        printf("phone_book.at(index).size() : %d", phone_book.at(index).size());
-                        printf("false\n");
+                        // printf("phone_book.at(index).size() : %d", phone_book.at(index).size());
+                        // printf("false\n");
                         return false;
                     }
 
                     if (phone_book.at(row).size() - 1 == col)
                     {
-                        printf("false\n");
+                        // printf("false\n");
                         return false;
                     }
                     break;
@@ -51,18 +49,18 @@ bool solution(vector<string> phone_book) {
         {
             if (survival == false)
             {
-                printf("there's possibility to be survival, %d\n",col);
+                // printf("there's possibility to be survival, %d\n",col);
                 flag = true;
                 break;
             }
         }
         if (flag == false)
         {
-            printf("all is the true\n");
+            // printf("all is the true\n");
             return true;
         }
     }
-    printf("true\n");
+    //printf("true\n");
     return true;
 }
 
